@@ -40,19 +40,19 @@ const OrderDetails = ({ match }) => {
                   <div className="orderDetailsContainerBox">
                     <div>
                       <p>Name:</p>
-                      <span>{order.user && order.user.name}</span>
+                      <span>{order?.user && order.user?.name}</span>
                     </div>
                     <div>
                       <p>Phone:</p>
                       <span>
-                        {order.shippingInfo && order.shippingInfo.phoneNo}
+                        {order?.shippingInfo && order?.shippingInfo?.phoneNo}
                       </span>
                     </div>
                     <div>
                       <p>Address:</p>
                       <span>
-                        {order.shippingInfo &&
-                          `${order.shippingInfo.address}, ${order.shippingInfo.city}, ${order.shippingInfo.state}, ${order.shippingInfo.pinCode}, ${order.shippingInfo.country}`}
+                        {order?.shippingInfo &&
+                          `${order?.shippingInfo.address}, ${order?.shippingInfo?.city}, ${order?.shippingInfo?.state}, ${order?.shippingInfo?.pinCode}, ${order?.shippingInfo?.country}`}
                       </span>
                     </div>
                   </div>
@@ -61,14 +61,14 @@ const OrderDetails = ({ match }) => {
                     <div>
                       <p
                         className={
-                          order.paymentInfo &&
-                          order.paymentInfo.status === "succeeded"
+                          order?.paymentInfo &&
+                          order?.paymentInfo?.status === "succeeded"
                             ? "greenColor"
                             : "redColor"
                         }
                       >
-                        {order.paymentInfo &&
-                        order.paymentInfo.status === "succeeded"
+                        {order?.paymentInfo &&
+                        order?.paymentInfo?.status === "succeeded"
                           ? "PAID"
                           : "NOT PAID"}
                       </p>
@@ -76,7 +76,7 @@ const OrderDetails = ({ match }) => {
     
                     <div>
                       <p>Amount:</p>
-                      <span>{order.totalPrice && order.totalPrice}</span>
+                      <span>{order?.totalPrice && order?.totalPrice}</span>
                     </div>
                   </div>
     
@@ -85,12 +85,12 @@ const OrderDetails = ({ match }) => {
                     <div>
                       <p
                         className={
-                          order.orderStatus && order.orderStatus === "Delivered"
+                          order?.orderStatus && order?.orderStatus === "Delivered"
                             ? "greenColor"
                             : "redColor"
                         }
                       >
-                        {order.orderStatus && order.orderStatus}
+                        {order?.orderStatus && order?.orderStatus}
                       </p>
                     </div>
                   </div>
@@ -99,10 +99,10 @@ const OrderDetails = ({ match }) => {
                 <div className="orderDetailsCartItems">
                   <Typography>Order Items:</Typography>
                   <div className="orderDetailsCartItemsContainer">
-                    {order.orderItems &&
-                      order.orderItems.map((item) => (
-                        <div key={item.product}>
-                          <img src={item.image} alt="Product" />
+                    {order?.orderItems &&
+                      order?.orderItems?.map((item) => (
+                        <div key={item?.product}>
+                          <img src={item?.image} alt="Product" />
                           <Link to={`/product/${item.product}`}>
                             {item.name}
                           </Link>{" "}
