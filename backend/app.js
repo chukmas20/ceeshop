@@ -1,5 +1,5 @@
 const express = require("express");
-const errorMiddleware = require("./middleware/error")
+// const errorMiddleware = require("./middleware/error")
 const app = express();
 const product = require("./routes/productRoute")
 const user = require("./routes/userRoutes")
@@ -41,7 +41,7 @@ app.get("*", (req,res)=>{
 
 
 
-app.use(errorMiddleware)
+// app.use(errorMiddleware)
 
 //middleware for error
 
